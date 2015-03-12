@@ -4,5 +4,6 @@ install:
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64
 
 build_script:
-  - python configure.py
+  - python configure.py --cpu=x86_32
   - nmake
+  - botan-test.exe

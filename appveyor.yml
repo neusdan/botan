@@ -6,4 +6,6 @@ install:
 build_script:
   - python configure.py --cpu=x86_32
   - nmake
+  
+test_script:
   - botan-test.exe

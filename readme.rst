@@ -1,7 +1,8 @@
 Botan Crypto Library
 ========================================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/5t1osr48aq000yri?svg=true)](https://ci.appveyor.com/project/neusdan/botan)
+.. image:: https://ci.appveyor.com/api/projects/status/5t1osr48aq000yri?svg=true
+    :target: https://ci.appveyor.com/project/neusdan/botan
 
 
 Botan is a C++11 library for crypto and TLS released under the permissive

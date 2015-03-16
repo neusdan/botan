@@ -1,0 +1,1393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien\base">
+      <UniqueIdentifier>{7351fbfe-d823-468e-a6fb-20a73d3f045e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\base">
+      <UniqueIdentifier>{72ef1d4c-7b8c-47da-9eaa-530afd434c39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\asn1">
+      <UniqueIdentifier>{b2a388b2-d89a-4e49-bd7f-cd3e6bfa554f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\asn1\oid_lookup">
+      <UniqueIdentifier>{916562e5-6281-4a31-bc17-66f14c120c6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block">
+      <UniqueIdentifier>{479e7c63-def2-44ca-be28-008cb239b361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\aes">
+      <UniqueIdentifier>{6d64467f-1828-44e6-b1dc-a95bfa52f02f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\aes_ni">
+      <UniqueIdentifier>{2f4a07b3-0673-468c-8f06-b7b6d0911836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\aes_ssse3">
+      <UniqueIdentifier>{68dc16cb-b98d-424d-ab77-a0aebc5c6e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\blowfish">
+      <UniqueIdentifier>{18b1b38e-3661-41d3-b916-0a11b8acb094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\camellia">
+      <UniqueIdentifier>{b1ad3614-bf8b-4a62-8161-43d692eb2fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\cascade">
+      <UniqueIdentifier>{66ff1dfa-4f31-4cde-80d7-94ecbd200337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\cast">
+      <UniqueIdentifier>{73761e57-98fb-42a4-9be0-e91e828a2919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\des">
+      <UniqueIdentifier>{45b7816d-8006-4dd8-950f-c285f89bf62e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\gost_28147">
+      <UniqueIdentifier>{ff79ef6c-1a8d-4139-847d-8dd8f9e56b79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\idea">
+      <UniqueIdentifier>{daa53db1-9481-4f34-870e-f5dd56dadda1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\idea_sse2">
+      <UniqueIdentifier>{123b7b49-31af-4715-8f95-6d1ac746acd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\kasumi">
+      <UniqueIdentifier>{67d58195-a3eb-4ea6-b2d3-70cea02c3377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\lion">
+      <UniqueIdentifier>{818252b9-d406-44a0-8371-3a9ab7933647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\mars">
+      <UniqueIdentifier>{3f0e87f1-af20-489e-86ca-a48c1561d8e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\misty1">
+      <UniqueIdentifier>{f9780ecc-7eb2-4a94-bbc7-1bef5b9950d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\noekeon">
+      <UniqueIdentifier>{b324951a-6903-45c1-9a4f-71e9cc6f4a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\noekeon_simd">
+      <UniqueIdentifier>{90ad38d8-0d3d-48af-8b7f-e5ed9f8b1cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\rc2">
+      <UniqueIdentifier>{02ed9e72-04a9-40e5-b3e8-71f1c89f64de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\rc5">
+      <UniqueIdentifier>{dba94fdf-83ec-4754-9535-ea97269ba6b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\rc6">
+      <UniqueIdentifier>{8faefd52-0709-40db-b6fb-f0778a6cf40e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\safer">
+      <UniqueIdentifier>{7463e1a9-9cb0-410f-880c-9190bf28de4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\seed">
+      <UniqueIdentifier>{77638082-1b9c-4307-8e83-cf343a911b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\serpent">
+      <UniqueIdentifier>{a26139d4-a1b4-4881-ad0b-8843cde60782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\serpent_simd">
+      <UniqueIdentifier>{a1f51a87-2c47-4a74-98b9-d68e98e4f14b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\tea">
+      <UniqueIdentifier>{cabc8a32-1731-40d0-bfe6-a40e2d3d8ff4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\threefish">
+      <UniqueIdentifier>{0f5a6c2e-174e-4d71-809e-476b74bf2557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\twofish">
+      <UniqueIdentifier>{f6a13473-ce93-43bf-adc5-5849a4f45769}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\xtea">
+      <UniqueIdentifier>{9a05a3be-e292-4d2a-b153-1d9d052f0e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\block\xtea_simd">
+      <UniqueIdentifier>{b73c2439-d330-4690-9c37-a5ec6ade33af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\cert">
+      <UniqueIdentifier>{1719c55d-be6d-4204-9bc4-5407528fcb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\cert\x509">
+      <UniqueIdentifier>{aa681fb8-b369-42b0-bf58-bc05654a4547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\codec">
+      <UniqueIdentifier>{7ae11154-969f-4c8c-8075-2983499344c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\codec\base64">
+      <UniqueIdentifier>{068a8e9c-0931-4ad1-aa07-0afa890e84a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\codec\hex">
+      <UniqueIdentifier>{edd79c84-c617-4946-9c32-2dd510725b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\compression">
+      <UniqueIdentifier>{ea569e23-4601-42cb-8ee0-60b1b1d3710d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\credentials">
+      <UniqueIdentifier>{6e50fe15-590c-47e7-b542-38918d4782b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\entropy">
+      <UniqueIdentifier>{c79875e4-dd5c-4f93-bd32-463af06fc02e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\entropy\cryptoapi_rng">
+      <UniqueIdentifier>{18b95b5d-c59d-475f-86b0-f454b1ae871b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\entropy\hres_timer">
+      <UniqueIdentifier>{6a4de00b-a0ea-4db3-b55b-2ec6b6c56b32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\entropy\win32_stats">
+      <UniqueIdentifier>{c27b2ae0-9a31-4d16-87f4-8249faec2daa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\ffi">
+      <UniqueIdentifier>{52f5009f-61b8-4108-a159-3e3b97591336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\filters">
+      <UniqueIdentifier>{132e8305-7a75-40c4-9a6d-10f1cb9f323a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\filters\codec_filt">
+      <UniqueIdentifier>{f259aaff-2d00-44c5-97d6-73ceeb36d346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash">
+      <UniqueIdentifier>{7288be0b-cdd0-4227-8dfd-c8a721dd401b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\checksum">
+      <UniqueIdentifier>{692681a4-31fd-4f20-a9e9-ac0414515d46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\checksum\adler32">
+      <UniqueIdentifier>{dcf27bbf-b3f9-4387-805d-53ba69ba4e30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\checksum\crc24">
+      <UniqueIdentifier>{4838fe53-d192-4929-b5f4-d62d3cb70c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\checksum\crc32">
+      <UniqueIdentifier>{c2828207-c14f-4a2a-9cca-cb73cf916e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\comb4p">
+      <UniqueIdentifier>{cc9d5627-0825-48a7-b35c-d0f09857fda4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\gost_3411">
+      <UniqueIdentifier>{5c07fd74-6c27-40f8-a571-1399ddad513c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\has160">
+      <UniqueIdentifier>{fdf65e82-3a2e-4b5b-94f2-9ca9384a2e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\keccak">
+      <UniqueIdentifier>{b5e94ca8-0b83-4cbe-8519-fce304c24eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\md2">
+      <UniqueIdentifier>{95ece1e1-4d7a-4369-9581-58ff2b64b629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\md4">
+      <UniqueIdentifier>{635a698c-03d5-44aa-b46e-90adbdc3f0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\md5">
+      <UniqueIdentifier>{7f392c7b-6c8e-4309-8c1a-08288d884e8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\mdx_hash">
+      <UniqueIdentifier>{084cedfb-0c49-4128-8298-208291659e7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\par_hash">
+      <UniqueIdentifier>{bee8854b-cf1f-4ef3-a3f7-f91b8978abe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\rmd128">
+      <UniqueIdentifier>{1a5f858b-78a6-4e6a-bfb1-88a97bde3fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\rmd160">
+      <UniqueIdentifier>{02078e8e-b90e-4fbc-b053-f40f166805b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\sha1">
+      <UniqueIdentifier>{e39bad46-b3c9-4800-b145-09b0db701cf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\sha1_sse2">
+      <UniqueIdentifier>{4ae51e7b-49ae-4f98-8794-32ab5a1e2763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\sha2_32">
+      <UniqueIdentifier>{50f7d298-3eac-43f6-a1ed-1454d7ccacd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\sha2_64">
+      <UniqueIdentifier>{eab2fa7d-3885-4f26-9e2a-d2b9e4516ae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\skein">
+      <UniqueIdentifier>{335b0407-25c5-4ba7-bdac-d49e40dcb95f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\tiger">
+      <UniqueIdentifier>{3227e36e-d2dd-484d-8a82-37305eebe37d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\hash\whirlpool">
+      <UniqueIdentifier>{af9fb920-754b-45dc-b30a-1880549709d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\kdf">
+      <UniqueIdentifier>{39f5e06e-b208-466b-a0a2-0fecabc32256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\kdf\hkdf">
+      <UniqueIdentifier>{7ffc890b-8bcb-459a-96e1-39f0059aef6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\kdf\kdf1">
+      <UniqueIdentifier>{3d4ce13c-f89f-4db7-b06d-b1411b735b4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\kdf\kdf2">
+      <UniqueIdentifier>{d988ebba-c40d-49e3-9888-d1db03aba2a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\kdf\prf_tls">
+      <UniqueIdentifier>{35abeb9a-d7dd-4699-b213-9eae6903158a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\kdf\prf_x942">
+      <UniqueIdentifier>{c495ab81-eb68-4421-b3ad-c027be00a2be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac">
+      <UniqueIdentifier>{2c341312-3f79-4491-862a-21e122a6491d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac\cbc_mac">
+      <UniqueIdentifier>{34be82c6-d211-48bb-be8d-e00284456162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac\cmac">
+      <UniqueIdentifier>{f0efe786-dbb3-461d-bfb8-91fd268c8ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac\hmac">
+      <UniqueIdentifier>{801c7e3d-27d6-4c6d-8572-e17af0877a83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac\poly1305">
+      <UniqueIdentifier>{f082ecf9-e6b9-46b6-bbe4-05e64cf2fda5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac\siphash">
+      <UniqueIdentifier>{363982e6-9607-4f2c-8804-50de9bf371b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\mac\x919_mac">
+      <UniqueIdentifier>{0f319b62-1a5d-454e-9d4f-fcb24700315c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\math">
+      <UniqueIdentifier>{871d1d49-ffcc-4eb0-99c5-4248f63f4a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\math\bigint">
+      <UniqueIdentifier>{f5bcbf1d-7d64-4a2a-8c80-554179ae04ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\math\ec_gfp">
+      <UniqueIdentifier>{85ff6fac-3cc6-4cb1-a840-e1f6b0a9f683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\math\mp">
+      <UniqueIdentifier>{e1504724-5f54-4695-9c5c-faa97e951619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\math\numbertheory">
+      <UniqueIdentifier>{488afdbe-8605-4cea-bc91-852776cd1681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc">
+      <UniqueIdentifier>{e1f0f2cb-43b9-4dad-8b6e-3e76d020488f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\aont">
+      <UniqueIdentifier>{cd558d90-c214-469e-bdce-0ab5c5477466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\benchmark">
+      <UniqueIdentifier>{4a4343ce-be4e-4160-bd4e-4159fd37c0f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\fpe_fe1">
+      <UniqueIdentifier>{51e18956-8d57-438f-bbd0-3da774c57517}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\openpgp">
+      <UniqueIdentifier>{be23db56-cb26-4439-b476-fe83b6407cda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\pbes2">
+      <UniqueIdentifier>{0b2daab2-326c-432c-b273-326d4150bde8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\pem">
+      <UniqueIdentifier>{daeafe91-a4c4-4416-a5c8-358c79a34ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\rfc3394">
+      <UniqueIdentifier>{17f2f8ae-e91d-43f2-b08b-5807f3ab3fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\srp6">
+      <UniqueIdentifier>{90258cf0-6fd9-4b70-8ccb-d8ec0d69c11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\cryptobox">
+      <UniqueIdentifier>{9e9e655b-ea57-40c9-8371-4caa2f530c95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\misc\tss">
+      <UniqueIdentifier>{35400064-2697-4887-89ac-7dd90f5d7a68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes">
+      <UniqueIdentifier>{bcccd188-fb26-4601-8b18-22ae11df434c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead">
+      <UniqueIdentifier>{a73afd4b-923f-4526-926d-44d9a48f464b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead\ccm">
+      <UniqueIdentifier>{4ecb0990-86f0-4b0b-96b0-5f45c827181d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead\chacha20poly1305">
+      <UniqueIdentifier>{8f01fffc-8582-4f6e-9803-e989aae5e38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead\eax">
+      <UniqueIdentifier>{14b2d275-c11a-43d7-b72e-7d728b7dbd2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead\gcm">
+      <UniqueIdentifier>{7cdad36b-9b32-4c4d-a7cc-ec6e4b6e6ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead\ocb">
+      <UniqueIdentifier>{84006f24-dc9f-4779-bf7f-a3220d304503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\aead\siv">
+      <UniqueIdentifier>{0849a5a9-f3fc-4e98-a8f0-cca8627af908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\cbc">
+      <UniqueIdentifier>{e3d0e23a-9efe-4605-a762-b11326487dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\cfb">
+      <UniqueIdentifier>{02a9d884-0e96-46cf-97b1-14fcfc5c3642}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\ecb">
+      <UniqueIdentifier>{3fa1192b-9990-4164-a648-c04bcaa51756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\mode_pad">
+      <UniqueIdentifier>{c6fab6c8-441c-476e-8c36-ac903ea3a870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\modes\xts">
+      <UniqueIdentifier>{892b8b20-6b96-4a30-8ecb-c733897f7e90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\passhash">
+      <UniqueIdentifier>{2008271e-c711-47d7-960a-f5a42d6b8e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\passhash\bcrypt">
+      <UniqueIdentifier>{a4e6b162-3781-4450-81c3-d099d6634c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\passhash\passhash9">
+      <UniqueIdentifier>{a3538ee0-4ab2-45e3-b540-438dba7accad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pbkdf">
+      <UniqueIdentifier>{9e509c61-b60a-40ab-8946-5697d78eb7b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pbkdf\pbkdf1">
+      <UniqueIdentifier>{ee573f6b-8b78-49aa-8dd6-153ce7e7ba2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pbkdf\pbkdf2">
+      <UniqueIdentifier>{31df88ae-29d1-4292-a235-63c4ca0191b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad">
+      <UniqueIdentifier>{4ce1cb16-11ec-4d2b-88ff-12a3344960b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\eme_oaep">
+      <UniqueIdentifier>{cc76cef7-2d23-40df-9223-1d19dd9ad629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\eme_pkcs1">
+      <UniqueIdentifier>{ebe66adc-5041-4681-b434-121c5aa4e510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\eme_raw">
+      <UniqueIdentifier>{b0ce8cf4-b84f-447a-b973-410cf8d85db8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\emsa1">
+      <UniqueIdentifier>{85bffb0d-988a-486a-a9c6-0f65d5c950e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\emsa1_bsi">
+      <UniqueIdentifier>{9670bb5e-2e67-4ee7-9f17-ad2a507a50a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\emsa_pkcs1">
+      <UniqueIdentifier>{90e08fc7-5e17-4196-8eaf-88baa85b1fd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\emsa_pssr">
+      <UniqueIdentifier>{f19cb572-b6d1-43b9-953d-bdd7ca246858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\emsa_raw">
+      <UniqueIdentifier>{b800058c-6c8e-4902-9241-a516a76c07e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\emsa_x931">
+      <UniqueIdentifier>{ac24c4b1-c3e0-4397-84f1-4d46e4118acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\hash_id">
+      <UniqueIdentifier>{1e5910e2-6e80-480e-bf35-fbcb2c35e1fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pk_pad\mgf1">
+      <UniqueIdentifier>{8fa36cb2-dd82-45f6-9611-ab502b7aa0bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey">
+      <UniqueIdentifier>{f70e476c-8462-4246-8a87-abd3413c9f7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\curve25519">
+      <UniqueIdentifier>{118c6f56-9a67-4261-940b-3d122f001623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\dh">
+      <UniqueIdentifier>{2fececa3-2dd3-48da-8ae2-4948b65c2e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\dl_algo">
+      <UniqueIdentifier>{50eb88f5-8eb8-40be-ba33-70eed599c912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\dl_group">
+      <UniqueIdentifier>{decd4bb4-8904-4297-a344-c9f4deccf839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\dlies">
+      <UniqueIdentifier>{969b3ad6-7801-4ed7-8682-4c878bb19488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\dsa">
+      <UniqueIdentifier>{5ef5d0d1-f7f1-4868-a919-c7da5772eefd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\ec_group">
+      <UniqueIdentifier>{41728aef-411f-4214-9c1e-7d13de109391}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\ecc_key">
+      <UniqueIdentifier>{5dc7acb4-bfbc-4de1-b33d-c56aacaaf05b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\ecdh">
+      <UniqueIdentifier>{d1a2241c-6d35-406c-aa1b-72d5032ef186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\ecdsa">
+      <UniqueIdentifier>{8634f31b-1a3f-4e23-8a0a-48045c8b6fd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\elgamal">
+      <UniqueIdentifier>{0f17494e-9e17-41bc-946a-c801928dd2c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\gost_3410">
+      <UniqueIdentifier>{b9ec031b-9bf8-43c8-8953-822f8a0dbe7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\if_algo">
+      <UniqueIdentifier>{18970655-924d-4738-b313-59063b5b9b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\keypair">
+      <UniqueIdentifier>{d136bcc5-13ae-4bfd-be25-16c7f91f54ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\mce">
+      <UniqueIdentifier>{4ab78de6-cebe-4d24-a555-72181053d1f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\mceies">
+      <UniqueIdentifier>{1f46b86a-4cf4-4897-83f8-bdabab1f6bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\nr">
+      <UniqueIdentifier>{ec95dc57-6f82-4f23-9be5-fe5693e0f790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\rfc6979">
+      <UniqueIdentifier>{ec8edc0e-48f2-4687-93a6-f59453e4e873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\rsa">
+      <UniqueIdentifier>{4d32f940-5810-442a-ba1a-ffa5ffbe9992}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\pubkey\rw">
+      <UniqueIdentifier>{5c849838-9a55-4cd6-a1d9-ab243f957536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\rng">
+      <UniqueIdentifier>{155c0130-9f77-443f-8da4-caf33c107861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\rng\hmac_drbg">
+      <UniqueIdentifier>{5238378b-a38d-457d-b1ff-5c725ccfeb76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\rng\hmac_rng">
+      <UniqueIdentifier>{a9918488-98e4-4aad-ac7b-abbea161b547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\rng\system_rng">
+      <UniqueIdentifier>{bcd56969-5f82-4ac6-9af4-20d2c9d8ce41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\rng\x931_rng">
+      <UniqueIdentifier>{59ae48d9-e79d-45f1-8ed7-b0b635871208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\stream">
+      <UniqueIdentifier>{45e2fc46-17eb-4c44-9d7e-4d003da736c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\stream\chacha">
+      <UniqueIdentifier>{7e145d5f-fb30-40b1-8ef7-c3a6a2055c73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\stream\ctr">
+      <UniqueIdentifier>{a046eb6e-b0c2-4553-9908-0d7af88422b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\stream\ofb">
+      <UniqueIdentifier>{828bedfe-63f2-442c-bcc7-fdbce208c8d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\stream\rc4">
+      <UniqueIdentifier>{6a8abe3f-2d55-4676-8d34-7370382cc855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\stream\salsa20">
+      <UniqueIdentifier>{8eb88120-4585-4c44-9c1f-1361ee534c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\tls">
+      <UniqueIdentifier>{9e6fa59d-c1c0-44e1-a763-208b879be507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\tls\sessions_sql">
+      <UniqueIdentifier>{94c53374-1026-4d1d-8033-9d951824454d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\utils">
+      <UniqueIdentifier>{1274b0f0-4851-4f81-a36c-bc9dc5b99734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\utils\datastor">
+      <UniqueIdentifier>{bce678c6-b479-47be-987c-3257baf074be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\utils\http_util">
+      <UniqueIdentifier>{383c90ab-e121-4147-95e3-0290af412a7f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\base\symkey.cpp">
+      <Filter>Quelldateien\base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\base\scan_name.cpp">
+      <Filter>Quelldateien\base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\base\lookup.cpp">
+      <Filter>Quelldateien\base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\base\init.cpp">
+      <Filter>Quelldateien\base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\alg_id.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\asn1_alt_name.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\asn1_attribute.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\asn1_obj.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\asn1_oid.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\asn1_str.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\asn1_time.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\ber_dec.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\der_enc.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\x509_dn.cpp">
+      <Filter>Quelldateien\asn1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\oid_lookup\default.cpp">
+      <Filter>Quelldateien\asn1\oid_lookup</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\asn1\oid_lookup\oids.cpp">
+      <Filter>Quelldateien\asn1\oid_lookup</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\aes\aes.cpp">
+      <Filter>Quelldateien\block\aes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\aes_ni\aes_ni.cpp">
+      <Filter>Quelldateien\block\aes_ni</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\aes_ssse3\aes_ssse3.cpp">
+      <Filter>Quelldateien\block\aes_ssse3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\blowfish\blfs_tab.cpp">
+      <Filter>Quelldateien\block\blowfish</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\blowfish\blowfish.cpp">
+      <Filter>Quelldateien\block\blowfish</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\camellia\camellia.cpp">
+      <Filter>Quelldateien\block\camellia</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\cascade\cascade.cpp">
+      <Filter>Quelldateien\block\cascade</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\cast\cast128.cpp">
+      <Filter>Quelldateien\block\cast</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\cast\cast256.cpp">
+      <Filter>Quelldateien\block\cast</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\des\des.cpp">
+      <Filter>Quelldateien\block\des</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\des\des_tab.cpp">
+      <Filter>Quelldateien\block\des</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\des\desx.cpp">
+      <Filter>Quelldateien\block\des</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\gost_28147\gost_28147.cpp">
+      <Filter>Quelldateien\block\gost_28147</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\idea\idea.cpp">
+      <Filter>Quelldateien\block\idea</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\idea_sse2\idea_sse2.cpp">
+      <Filter>Quelldateien\block\idea_sse2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\kasumi\kasumi.cpp">
+      <Filter>Quelldateien\block\kasumi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\lion\lion.cpp">
+      <Filter>Quelldateien\block\lion</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\mars\mars.cpp">
+      <Filter>Quelldateien\block\mars</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\misty1\misty1.cpp">
+      <Filter>Quelldateien\block\misty1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\rc6\rc6.cpp">
+      <Filter>Quelldateien\block\rc6</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\rc5\rc5.cpp">
+      <Filter>Quelldateien\block\rc5</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\rc2\rc2.cpp">
+      <Filter>Quelldateien\block\rc2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\noekeon_simd\noekeon_simd.cpp">
+      <Filter>Quelldateien\block\noekeon_simd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\noekeon\noekeon.cpp">
+      <Filter>Quelldateien\block\noekeon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\safer\safer_sk.cpp">
+      <Filter>Quelldateien\block\safer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\seed\seed.cpp">
+      <Filter>Quelldateien\block\seed</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\seed\seed_tab.cpp">
+      <Filter>Quelldateien\block\seed</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\serpent_simd\serp_simd.cpp">
+      <Filter>Quelldateien\block\serpent_simd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\serpent\serpent.cpp">
+      <Filter>Quelldateien\block\serpent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\tea\tea.cpp">
+      <Filter>Quelldateien\block\tea</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\threefish\threefish.cpp">
+      <Filter>Quelldateien\block\threefish</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\twofish\twofish.cpp">
+      <Filter>Quelldateien\block\twofish</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\twofish\two_tab.cpp">
+      <Filter>Quelldateien\block\twofish</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\xtea\xtea.cpp">
+      <Filter>Quelldateien\block\xtea</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\block\xtea_simd\xtea_simd.cpp">
+      <Filter>Quelldateien\block\xtea_simd</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\certstor.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\crl_ent.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\key_constraint.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\ocsp.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\ocsp_types.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\pkcs10.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509_ca.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509_crl.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509_ext.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509_obj.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509cert.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509opt.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509path.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\cert\x509\x509self.cpp">
+      <Filter>Quelldateien\cert\x509</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\codec\base64\base64.cpp">
+      <Filter>Quelldateien\codec\base64</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\codec\hex\hex.cpp">
+      <Filter>Quelldateien\codec\hex</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\compression\compression.cpp">
+      <Filter>Quelldateien\compression</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\credentials\credentials_manager.cpp">
+      <Filter>Quelldateien\credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\entropy\cryptoapi_rng\es_capi.cpp">
+      <Filter>Quelldateien\entropy\cryptoapi_rng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\entropy\entropy_srcs.cpp">
+      <Filter>Quelldateien\entropy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\entropy\hres_timer\hres_timer.cpp">
+      <Filter>Quelldateien\entropy\hres_timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\entropy\win32_stats\es_win32.cpp">
+      <Filter>Quelldateien\entropy\win32_stats</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\ffi\ffi.cpp">
+      <Filter>Quelldateien\ffi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\algo_filt.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\basefilt.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\buf_filt.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\comp_filter.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\data_snk.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\data_src.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\filter.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\key_filt.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\out_buf.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\pipe.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\pipe_io.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\pipe_rw.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\secqueue.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\threaded_fork.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\transform_filter.cpp">
+      <Filter>Quelldateien\filters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\codec_filt\b64_filt.cpp">
+      <Filter>Quelldateien\filters\codec_filt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\filters\codec_filt\hex_filt.cpp">
+      <Filter>Quelldateien\filters\codec_filt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\checksum\adler32\adler32.cpp">
+      <Filter>Quelldateien\hash\checksum\adler32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\checksum\crc24\crc24.cpp">
+      <Filter>Quelldateien\hash\checksum\crc24</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\checksum\crc32\crc32.cpp">
+      <Filter>Quelldateien\hash\checksum\crc32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\comb4p\comb4p.cpp">
+      <Filter>Quelldateien\hash\comb4p</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\gost_3411\gost_3411.cpp">
+      <Filter>Quelldateien\hash\gost_3411</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\has160\has160.cpp">
+      <Filter>Quelldateien\hash\has160</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\keccak\keccak.cpp">
+      <Filter>Quelldateien\hash\keccak</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\md2\md2.cpp">
+      <Filter>Quelldateien\hash\md2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\md4\md4.cpp">
+      <Filter>Quelldateien\hash\md4</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\md5\md5.cpp">
+      <Filter>Quelldateien\hash\md5</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\mdx_hash\mdx_hash.cpp">
+      <Filter>Quelldateien\hash\mdx_hash</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\par_hash\par_hash.cpp">
+      <Filter>Quelldateien\hash\par_hash</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\rmd128\rmd128.cpp">
+      <Filter>Quelldateien\hash\rmd128</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\rmd160\rmd160.cpp">
+      <Filter>Quelldateien\hash\rmd160</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\sha1\sha160.cpp">
+      <Filter>Quelldateien\hash\sha1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\sha1_sse2\sha1_sse2.cpp">
+      <Filter>Quelldateien\hash\sha1_sse2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\sha2_32\sha2_32.cpp">
+      <Filter>Quelldateien\hash\sha2_32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\sha2_64\sha2_64.cpp">
+      <Filter>Quelldateien\hash\sha2_64</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\skein\skein_512.cpp">
+      <Filter>Quelldateien\hash\skein</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\tiger\tig_tab.cpp">
+      <Filter>Quelldateien\hash\tiger</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\tiger\tiger.cpp">
+      <Filter>Quelldateien\hash\tiger</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\whirlpool\whirlpool.cpp">
+      <Filter>Quelldateien\hash\whirlpool</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\hash\whirlpool\whrl_tab.cpp">
+      <Filter>Quelldateien\hash\whirlpool</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\kdf\hkdf\hkdf.cpp">
+      <Filter>Quelldateien\kdf\hkdf</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\kdf\kdf.cpp">
+      <Filter>Quelldateien\kdf</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\kdf\kdf1\kdf1.cpp">
+      <Filter>Quelldateien\kdf\kdf1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\kdf\kdf2\kdf2.cpp">
+      <Filter>Quelldateien\kdf\kdf2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\kdf\prf_tls\prf_tls.cpp">
+      <Filter>Quelldateien\kdf\prf_tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\kdf\prf_x942\prf_x942.cpp">
+      <Filter>Quelldateien\kdf\prf_x942</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\cbc_mac\cbc_mac.cpp">
+      <Filter>Quelldateien\mac\cbc_mac</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\cmac\cmac.cpp">
+      <Filter>Quelldateien\mac\cmac</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\hmac\hmac.cpp">
+      <Filter>Quelldateien\mac\hmac</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\mac.cpp">
+      <Filter>Quelldateien\mac</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\poly1305\poly1305.cpp">
+      <Filter>Quelldateien\mac\poly1305</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\siphash\siphash.cpp">
+      <Filter>Quelldateien\mac\siphash</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\mac\x919_mac\x919_mac.cpp">
+      <Filter>Quelldateien\mac\x919_mac</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\big_code.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\big_io.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\big_ops2.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\big_ops3.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\big_rand.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\bigint.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\bigint\divide.cpp">
+      <Filter>Quelldateien\math\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\ec_gfp\curve_gfp.cpp">
+      <Filter>Quelldateien\math\ec_gfp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\ec_gfp\curve_nistp.cpp">
+      <Filter>Quelldateien\math\ec_gfp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\ec_gfp\point_gfp.cpp">
+      <Filter>Quelldateien\math\ec_gfp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_asm.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_comba.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_karat.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_misc.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_monty.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_mulop.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\mp\mp_shift.cpp">
+      <Filter>Quelldateien\math\mp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\dsa_gen.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\jacobi.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\make_prm.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\mp_numth.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\numthry.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\pow_mod.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\powm_fw.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\powm_mnt.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\primes.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\reducer.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\math\numbertheory\ressol.cpp">
+      <Filter>Quelldateien\math\numbertheory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\aont\package.cpp">
+      <Filter>Quelldateien\misc\aont</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\benchmark\benchmark.cpp">
+      <Filter>Quelldateien\misc\benchmark</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\cryptobox\cryptobox.cpp">
+      <Filter>Quelldateien\misc\cryptobox</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\fpe_fe1\fpe_fe1.cpp">
+      <Filter>Quelldateien\misc\fpe_fe1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\srp6\srp6.cpp">
+      <Filter>Quelldateien\misc\srp6</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\srp6\srp6_files.cpp">
+      <Filter>Quelldateien\misc\srp6</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\rfc3394\rfc3394.cpp">
+      <Filter>Quelldateien\misc\rfc3394</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\pem\pem.cpp">
+      <Filter>Quelldateien\misc\pem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\pbes2\pbes2.cpp">
+      <Filter>Quelldateien\misc\pbes2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\openpgp\openpgp.cpp">
+      <Filter>Quelldateien\misc\openpgp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\misc\tss\tss.cpp">
+      <Filter>Quelldateien\misc\tss</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\aead.cpp">
+      <Filter>Quelldateien\modes\aead</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\ccm\ccm.cpp">
+      <Filter>Quelldateien\modes\aead\ccm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\chacha20poly1305\chacha20poly1305.cpp">
+      <Filter>Quelldateien\modes\aead\chacha20poly1305</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\eax\eax.cpp">
+      <Filter>Quelldateien\modes\aead\eax</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\gcm\gcm.cpp">
+      <Filter>Quelldateien\modes\aead\gcm</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\siv\siv.cpp">
+      <Filter>Quelldateien\modes\aead\siv</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\aead\ocb\ocb.cpp">
+      <Filter>Quelldateien\modes\aead\ocb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\cbc\cbc.cpp">
+      <Filter>Quelldateien\modes\cbc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\cfb\cfb.cpp">
+      <Filter>Quelldateien\modes\cfb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\cipher_mode.cpp">
+      <Filter>Quelldateien\modes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\ecb\ecb.cpp">
+      <Filter>Quelldateien\modes\ecb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\mode_pad\mode_pad.cpp">
+      <Filter>Quelldateien\modes\mode_pad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\modes\xts\xts.cpp">
+      <Filter>Quelldateien\modes\xts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\passhash\bcrypt\bcrypt.cpp">
+      <Filter>Quelldateien\passhash\bcrypt</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\passhash\passhash9\passhash9.cpp">
+      <Filter>Quelldateien\passhash\passhash9</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pbkdf\pbkdf.cpp">
+      <Filter>Quelldateien\pbkdf</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pbkdf\pbkdf1\pbkdf1.cpp">
+      <Filter>Quelldateien\pbkdf\pbkdf1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pbkdf\pbkdf2\pbkdf2.cpp">
+      <Filter>Quelldateien\pbkdf\pbkdf2</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\eme.cpp">
+      <Filter>Quelldateien\pk_pad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\eme_oaep\oaep.cpp">
+      <Filter>Quelldateien\pk_pad\eme_oaep</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\eme_pkcs1\eme_pkcs.cpp">
+      <Filter>Quelldateien\pk_pad\eme_pkcs1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\eme_raw\eme_raw.cpp">
+      <Filter>Quelldateien\pk_pad\eme_raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\emsa1\emsa1.cpp">
+      <Filter>Quelldateien\pk_pad\emsa1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\emsa1_bsi\emsa1_bsi.cpp">
+      <Filter>Quelldateien\pk_pad\emsa1_bsi</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\emsa_pkcs1\emsa_pkcs1.cpp">
+      <Filter>Quelldateien\pk_pad\emsa_pkcs1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\emsa_pssr\pssr.cpp">
+      <Filter>Quelldateien\pk_pad\emsa_pssr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\emsa_raw\emsa_raw.cpp">
+      <Filter>Quelldateien\pk_pad\emsa_raw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\emsa_x931\emsa_x931.cpp">
+      <Filter>Quelldateien\pk_pad\emsa_x931</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\get_pk_pad.cpp">
+      <Filter>Quelldateien\pk_pad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\hash_id\hash_id.cpp">
+      <Filter>Quelldateien\pk_pad\hash_id</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pk_pad\mgf1\mgf1.cpp">
+      <Filter>Quelldateien\pk_pad\mgf1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\blinding.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\curve25519\curve25519.cpp">
+      <Filter>Quelldateien\pubkey\curve25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\curve25519\donna.cpp">
+      <Filter>Quelldateien\pubkey\curve25519</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\dh\dh.cpp">
+      <Filter>Quelldateien\pubkey\dh</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\dl_algo\dl_algo.cpp">
+      <Filter>Quelldateien\pubkey\dl_algo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\dl_group\dl_group.cpp">
+      <Filter>Quelldateien\pubkey\dl_group</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\dl_group\named.cpp">
+      <Filter>Quelldateien\pubkey\dl_group</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\dlies\dlies.cpp">
+      <Filter>Quelldateien\pubkey\dlies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\dsa\dsa.cpp">
+      <Filter>Quelldateien\pubkey\dsa</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\ec_group\ec_group.cpp">
+      <Filter>Quelldateien\pubkey\ec_group</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\ec_group\named.cpp">
+      <Filter>Quelldateien\pubkey\ec_group</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\ecc_key\ecc_key.cpp">
+      <Filter>Quelldateien\pubkey\ecc_key</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\ecdh\ecdh.cpp">
+      <Filter>Quelldateien\pubkey\ecdh</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\ecdsa\ecdsa.cpp">
+      <Filter>Quelldateien\pubkey\ecdsa</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\elgamal\elgamal.cpp">
+      <Filter>Quelldateien\pubkey\elgamal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\gost_3410\gost_3410.cpp">
+      <Filter>Quelldateien\pubkey\gost_3410</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\if_algo\if_algo.cpp">
+      <Filter>Quelldateien\pubkey\if_algo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\keypair\keypair.cpp">
+      <Filter>Quelldateien\pubkey\keypair</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\binary_matrix.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\code_based_key_gen.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\gf2m_rootfind_dcmp.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\gf2m_small_m.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\goppa_code.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\mce_kem.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\mceliece.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\mceliece_key.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\polyn_gf2m.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mce\workfactor.cpp">
+      <Filter>Quelldateien\pubkey\mce</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\mceies\mceies.cpp">
+      <Filter>Quelldateien\pubkey\mceies</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\nr\nr.cpp">
+      <Filter>Quelldateien\pubkey\nr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\pk_algs.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\pk_keys.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\pk_ops.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\pkcs8.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\pubkey.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\rfc6979\rfc6979.cpp">
+      <Filter>Quelldateien\pubkey\rfc6979</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\rsa\rsa.cpp">
+      <Filter>Quelldateien\pubkey\rsa</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\rw\rw.cpp">
+      <Filter>Quelldateien\pubkey\rw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\workfactor.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\pubkey\x509_key.cpp">
+      <Filter>Quelldateien\pubkey</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rng\hmac_drbg\hmac_drbg.cpp">
+      <Filter>Quelldateien\rng\hmac_drbg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rng\hmac_rng\hmac_rng.cpp">
+      <Filter>Quelldateien\rng\hmac_rng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rng\rng.cpp">
+      <Filter>Quelldateien\rng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rng\system_rng\system_rng.cpp">
+      <Filter>Quelldateien\rng\system_rng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\rng\x931_rng\x931_rng.cpp">
+      <Filter>Quelldateien\rng\x931_rng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\stream\chacha\chacha.cpp">
+      <Filter>Quelldateien\stream\chacha</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\stream\ctr\ctr.cpp">
+      <Filter>Quelldateien\stream\ctr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\stream\salsa20\salsa20.cpp">
+      <Filter>Quelldateien\stream\salsa20</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\stream\rc4\rc4.cpp">
+      <Filter>Quelldateien\stream\rc4</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\stream\ofb\ofb.cpp">
+      <Filter>Quelldateien\stream\ofb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_cert_req.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_cert_verify.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_certificate.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_client_hello.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_client_kex.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_finished.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_hello_verify.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_next_protocol.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_server_hello.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_server_kex.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\msg_session_ticket.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\sessions_sql\tls_session_manager_sql.cpp">
+      <Filter>Quelldateien\tls\sessions_sql</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_alert.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_blocking.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_channel.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_ciphersuite.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_client.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_extensions.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_handshake_hash.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_handshake_io.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_handshake_state.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_heartbeats.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_policy.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_record.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_server.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_session.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_session_key.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_session_manager_memory.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_suite_info.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\tls\tls_version.cpp">
+      <Filter>Quelldateien\tls</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\assert.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\calendar.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\charset.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\cpuid.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\fs.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\parsing.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\read_cfg.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\semaphore.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\ta_utils.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\version.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\zero_mem.cpp">
+      <Filter>Quelldateien\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\datastor\datastor.cpp">
+      <Filter>Quelldateien\utils\datastor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils\http_util\http_util.cpp">
+      <Filter>Quelldateien\utils\http_util</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

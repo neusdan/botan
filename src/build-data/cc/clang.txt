@@ -17,6 +17,18 @@ compile_flags "-c"
 debug_info_flags "-g"
 optimization_flags "-O3"
 
+# UBSAN_OPTIONS=print_stacktrace=1
+# sanitizer_flags "-fsanitize=undefined -fsanitize=unsigned-integer-overflow -fno-omit-frame-pointer -fno-optimize-sibling-calls"
+
+# ASAN_OPTIONS=check_initialization_order=1.
+# sanitizer_flags "-fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls"
+
+#sanitizer_flags "-fsanitize=memory -fsanitize-memory-track-origins -fno-omit-frame-pointer -fno-optimize-sibling-calls"
+
+sanitizer_flags "-fsanitize=safe-stack -fno-omit-frame-pointer -fno-optimize-sibling-calls"
+
+
+
 shared_flags "-fPIC"
 coverage_flags "--coverage"
 

@@ -10,7 +10,8 @@ add_framework_option "-framework "
 
 lang_flags "-std=c++11 -D_REENTRANT -fstack-protector"
 
-warning_flags "-Wall -Wextra -Wstrict-aliasing -Wstrict-overflow=5 -Wcast-align -Wmissing-declarations -Wpointer-arith -Wcast-qual -Wunreachable-code"
+#warning_flags "-Wall -Wextra -Wstrict-aliasing -Wstrict-overflow=5 -Wcast-align -Wmissing-declarations -Wpointer-arith -Wcast-qual -Wunreachable-code"
+warning_flags "-Weverything -Wno-c++98-compat -Wno-weak-vtables -Wno-reserved-id-macro -Wno-padded -Wno-c++98-compat-pedantic"
 maintainer_warning_flags "-Qunused-arguments -Werror -Wno-error=unused-parameter -Wno-error=unused-variable -Wno-error=unreachable-code"
 
 compile_flags "-c"

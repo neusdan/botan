@@ -34,12 +34,10 @@ class secure_allocator
       typedef std::size_t     size_type;
       typedef std::ptrdiff_t  difference_type;
 
-      secure_allocator() BOTAN_NOEXCEPT {}
+      secure_allocator() BOTAN_NOEXCEPT = default;
 
       template<typename U>
-      secure_allocator(const secure_allocator<U>&) BOTAN_NOEXCEPT {}
-
-      ~secure_allocator() BOTAN_NOEXCEPT {}
+      secure_allocator(const secure_allocator<U>&) BOTAN_NOEXCEPT = default;
 
       pointer address(reference x) const BOTAN_NOEXCEPT
          { return std::addressof(x); }

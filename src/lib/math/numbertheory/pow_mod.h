@@ -22,7 +22,10 @@ class BOTAN_DLL Modular_Exponentiator
       virtual void set_exponent(const BigInt&) = 0;
       virtual BigInt execute() const = 0;
       virtual Modular_Exponentiator* copy() const = 0;
-      virtual ~Modular_Exponentiator() {}
+      Modular_Exponentiator() = default;
+      virtual ~Modular_Exponentiator() = default;
+      Modular_Exponentiator(const Modular_Exponentiator&) = default;
+      Modular_Exponentiator& operator=(const Modular_Exponentiator&) = default;
    };
 
 /**

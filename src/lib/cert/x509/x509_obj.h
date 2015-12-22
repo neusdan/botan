@@ -85,7 +85,9 @@ class BOTAN_DLL X509_Object : public ASN1_Object
       */
       std::string PEM_encode() const;
 
-      virtual ~X509_Object() {}
+      virtual ~X509_Object() = default;
+      X509_Object(const X509_Object&) = default;
+      X509_Object& operator=(const X509_Object&) = default;
    protected:
       X509_Object(DataSource& src, const std::string& pem_labels);
       X509_Object(const std::string& file, const std::string& pem_labels);

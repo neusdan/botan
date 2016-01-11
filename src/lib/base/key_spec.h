@@ -22,7 +22,7 @@ class BOTAN_DLL Key_Length_Specification
       * Constructor for fixed length keys
       * @param keylen the supported key length
       */
-      Key_Length_Specification(size_t keylen) :
+      explicit Key_Length_Specification(size_t keylen) :
          min_keylen(keylen),
          max_keylen(keylen),
          keylen_mod(1)

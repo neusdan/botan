@@ -245,7 +245,7 @@ class Benchmark : public Command
    public:
       Benchmark() : Command("bench --msec=1000 --provider= --buf-size=8 *algos") {}
 
-      void go()
+      void go() override
          {
          std::chrono::milliseconds msec(get_arg_sz("msec"));
          const size_t buf_size = get_arg_sz("buf-size");
@@ -353,7 +353,7 @@ class Benchmark : public Command
          {
          for(auto&& prov : T::providers(algo))
             {
-            if(provider == "" || provider == prov)
+            if(provider.empty() || provider == prov)
                {
                auto p = T::create(algo, prov);
 

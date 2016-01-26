@@ -356,12 +356,12 @@ void decode(Botan::BER_Decoder& decoder, size_t level)
 
 }
 
-class ASN1_Printer : public Command
+class ASN1_Printer final : public Command
    {
    public:
       ASN1_Printer() : Command("asn1print file") {}
 
-      void go()
+      void go() override
          {
          Botan::DataSource_Stream in(get_arg("file"));
 

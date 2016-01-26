@@ -104,12 +104,12 @@ uint64_t decrypt_cc_number(uint64_t enc_cc,
 
 }
 
-class CC_Encrypt : public Command
+class CC_Encrypt final : public Command
    {
    public:
       CC_Encrypt() : Command("cc_encrypt CC passphrase --tweak=") {}
 
-      void go()
+      void go() override
          {
          const uint64_t cc_number = std::stoull(get_arg("CC"));
          const std::vector<uint8_t> tweak = Botan::hex_decode(get_arg("tweak"));
@@ -130,7 +130,7 @@ class CC_Encrypt : public Command
 
 BOTAN_REGISTER_COMMAND("cc_encrypt", CC_Encrypt);
 
-class CC_Decrypt : public Command
+class CC_Decrypt final : public Command
    {
    public:
       CC_Decrypt() : Command("cc_decrypt CC passphrase --tweak=") {}

@@ -23,7 +23,7 @@ class TLS_Data_Reader;
 
 enum Handshake_Extension_Type {
    TLSEXT_SERVER_NAME_INDICATION = 0,
-   TLSEXT_MAX_FRAGMENT_LENGTH    = 1,
+   // 1 is maximum fragment length
    TLSEXT_CLIENT_CERT_URL        = 2,
    TLSEXT_TRUSTED_CA_KEYS        = 3,
    TLSEXT_TRUNCATED_HMAC         = 4,
@@ -94,6 +94,7 @@ class Server_Name_Indicator final : public Extension
       std::string m_sni_host_name;
    };
 
+#if defined(BOTAN_HAS_SRP6)
 /**
 * SRP identifier extension (RFC 5054)
 */
@@ -119,6 +120,7 @@ class SRP_Identifier final : public Extension
    private:
       std::string m_srp_identifier;
    };
+#endif
 
 /**
 * Renegotiation Indication Extension (RFC 5746)
@@ -147,38 +149,6 @@ class Renegotiation_Extension final : public Extension
       bool empty() const override { return false; } // always send this
    private:
       std::vector<byte> m_reneg_data;
-   };
-
-/**
-* Maximum Fragment Length Negotiation Extension (RFC 4366 sec 3.2)
-*/
-class Maximum_Fragment_Length final : public Extension
-   {
-   public:
-      static Handshake_Extension_Type static_type()
-         { return TLSEXT_MAX_FRAGMENT_LENGTH; }
-
-      Handshake_Extension_Type type() const override { return static_type(); }
-
-      bool empty() const override { return false; }
-
-      size_t fragment_size() const { return m_max_fragment; }
-
-      std::vector<byte> serialize() const override;
-
-      /**
-      * @param max_fragment specifies what maximum fragment size to
-      *        advertise. Currently must be one of 512, 1024, 2048, or
-      *        4096.
-      */
-      Maximum_Fragment_Length(size_t max_fragment) :
-         m_max_fragment(max_fragment) {}
-
-      Maximum_Fragment_Length(TLS_Data_Reader& reader,
-                              u16bit extension_size);
-
-   private:
-      size_t m_max_fragment;
    };
 
 /**
@@ -322,32 +292,6 @@ class Signature_Algorithms final : public Extension
                            u16bit extension_size);
    private:
       std::vector<std::pair<std::string, std::string> > m_supported_algos;
-   };
-
-/**
-* Heartbeat Extension (RFC 6520)
-*/
-class Heartbeat_Support_Indicator final : public Extension
-   {
-   public:
-      static Handshake_Extension_Type static_type()
-         { return TLSEXT_HEARTBEAT_SUPPORT; }
-
-      Handshake_Extension_Type type() const override { return static_type(); }
-
-      bool peer_allowed_to_send() const { return m_peer_allowed_to_send; }
-
-      std::vector<byte> serialize() const override;
-
-      bool empty() const override { return false; }
-
-      Heartbeat_Support_Indicator(bool peer_allowed_to_send) :
-         m_peer_allowed_to_send(peer_allowed_to_send) {}
-
-      Heartbeat_Support_Indicator(TLS_Data_Reader& reader, u16bit extension_size);
-
-   private:
-      bool m_peer_allowed_to_send;
    };
 
 /**

@@ -16,6 +16,54 @@ https://keybase.io/jacklloyd and on most PGP keyservers.
 Advisories
 ----------------------------------------
 
+2016
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* 2016-02-01 (CVE-2016-2196): Overwrite in P-521 reduction
+
+  The P-521 reduction function would overwrite zero to one word
+  following the allocated block. This could potentially result
+  in remote code execution or a crash. Found with AFL
+
+  Introduced in 1.11.10, fixed in 1.11.27
+
+* 2016-02-01 (CVE-2016-2195): Heap overflow on invalid ECC point
+
+  The PointGFp constructor did not check that the affine coordinate
+  arguments were less than the prime, but then in curve multiplication
+  assumed that both arguments if multiplied would fit into an integer
+  twice the size of the prime.
+
+  The bigint_mul and bigint_sqr functions received the size of the
+  output buffer, but only used it to dispatch to a faster algorithm in
+  cases where there was sufficient output space to call an unrolled
+  multiplication function.
+
+  The result is a heap overflow accessible via ECC point decoding,
+  which accepted untrusted inputs. This is likely exploitable for
+  remote code execution.
+
+  On systems which use the mlock pool allocator, it would allow an
+  attacker to overwrite memory held in secure_vector objects. After
+  this point the write will hit the guard page at the end of the
+  mmap'ed region so it probably could not be used for code execution
+  directly, but would allow overwriting adjacent key material.
+
+  Found by Alex Gaynor fuzzing with AFL
+
+  Introduced in 1.9.18, fixed in 1.11.27 and 1.10.11
+
+* 2016-02-01 (CVE-2016-2194): Infinite loop in modulur square root algorithm
+
+  The ressol function implements the Tonelli-Shanks algorithm for
+  finding square roots could be sent into a nearly infinite loop due
+  to a misplaced conditional check. This could occur if a composite
+  modulus is provided, as this algorithm is only defined for primes.
+  This function is exposed to attacker controlled input via the OS2ECP
+  function during ECC point decompression. Found by AFL
+
+  Introduced in 1.7.15, fixed in 1.11.27 and 1.10.11
+
 2015
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

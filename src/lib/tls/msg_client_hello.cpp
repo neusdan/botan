@@ -82,13 +82,10 @@ Client_Hello::Client_Hello(Handshake_IO& io,
    {
    m_extensions.add(new Extended_Master_Secret);
    m_extensions.add(new Renegotiation_Extension(reneg_info));
-   m_extensions.add(new SRP_Identifier(srp_identifier));
+
    m_extensions.add(new Server_Name_Indicator(hostname));
    m_extensions.add(new Session_Ticket());
    m_extensions.add(new Supported_Elliptic_Curves(policy.allowed_ecc_curves()));
-
-   if(policy.negotiate_heartbeat_support())
-      m_extensions.add(new Heartbeat_Support_Indicator(true));
 
    if(m_version.supports_negotiable_signature_algorithms())
       m_extensions.add(new Signature_Algorithms(policy.allowed_signature_hashes(),
@@ -99,6 +96,15 @@ Client_Hello::Client_Hello(Handshake_IO& io,
 
    if(reneg_info.empty() && !next_protocols.empty())
       m_extensions.add(new Application_Layer_Protocol_Notification(next_protocols));
+
+#if defined(BOTAN_HAS_SRP6)
+   m_extensions.add(new SRP_Identifier(srp_identifier));
+#else
+   if(!srp_identifier.empty())
+      {
+      throw Invalid_State("Attempting to initiate SRP session but TLS-SRP support disabled");
+      }
+#endif
 
    BOTAN_ASSERT(policy.acceptable_protocol_version(version),
                 "Our policy accepts the version we are offering");
@@ -139,16 +145,9 @@ Client_Hello::Client_Hello(Handshake_IO& io,
    m_extensions.add(new Extended_Master_Secret);
 
    m_extensions.add(new Renegotiation_Extension(reneg_info));
-   m_extensions.add(new SRP_Identifier(session.srp_identifier()));
    m_extensions.add(new Server_Name_Indicator(session.server_info().hostname()));
    m_extensions.add(new Session_Ticket(session.session_ticket()));
    m_extensions.add(new Supported_Elliptic_Curves(policy.allowed_ecc_curves()));
-
-   if(policy.negotiate_heartbeat_support())
-      m_extensions.add(new Heartbeat_Support_Indicator(true));
-
-   if(session.fragment_size() != 0)
-      m_extensions.add(new Maximum_Fragment_Length(session.fragment_size()));
 
    if(m_version.supports_negotiable_signature_algorithms())
       m_extensions.add(new Signature_Algorithms(policy.allowed_signature_hashes(),
@@ -156,6 +155,15 @@ Client_Hello::Client_Hello(Handshake_IO& io,
 
    if(reneg_info.empty() && !next_protocols.empty())
       m_extensions.add(new Application_Layer_Protocol_Notification(next_protocols));
+
+#if defined(BOTAN_HAS_SRP6)
+   m_extensions.add(new SRP_Identifier(session.srp_identifier()));
+#else
+   if(!session.srp_identifier().empty())
+      {
+      throw Invalid_State("Attempting to resume SRP session but TLS-SRP support disabled");
+      }
+#endif
 
    hash.update(io.send(*this));
    }

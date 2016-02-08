@@ -24,6 +24,22 @@
   #include <botan/system_rng.h>
 #endif
 
+#if defined(BOTAN_HAS_HMAC_DRBG)
+  #include <botan/hmac_drbg.h>
+#endif
+
+#if defined(BOTAN_HAS_HMAC_RNG)
+  #include <botan/hmac_rng.h>
+#endif
+
+#if defined(BOTAN_HAS_X931_RNG)
+  #include <botan/x931_rng.h>
+#endif
+
+#if defined(BOTAN_HAS_COMPRESSION)
+  #include <botan/compression.h>
+#endif
+
 #if defined(BOTAN_HAS_PUBLIC_KEY_CRYPTO)
   #include <botan/pkcs8.h>
   #include <botan/pubkey.h>
@@ -347,12 +363,30 @@ class Speed final : public Command
 #endif
             else if(algo == "RNG")
                {
+               Botan::AutoSeeded_RNG auto_rng;
+               bench_rng(auto_rng, "AutoSeeded_RNG (periodic reseed)", msec, buf_size);
+
 #if defined(BOTAN_HAS_SYSTEM_RNG)
                bench_rng(Botan::system_rng(), "System_RNG", msec, buf_size);
 #endif
 
-               Botan::AutoSeeded_RNG auto_rng;
-               bench_rng(auto_rng, "AutoSeeded_RNG", msec, buf_size);
+#if defined(BOTAN_HAS_X931_RNG)
+               Botan::ANSI_X931_RNG x931_rng(Botan::BlockCipher::create("AES-256").release(), new Botan::AutoSeeded_RNG);
+               bench_rng(x931_rng, x931_rng.name(), msec, buf_size);
+#endif
+
+#if defined(BOTAN_HAS_HMAC_DRBG)
+               for(std::string hash : { "SHA-256", "SHA-384", "SHA-512" })
+                  {
+
+                  auto hmac = Botan::MessageAuthenticationCode::create("HMAC(" + hash + ")");
+                  Botan::HMAC_DRBG hmac_drbg(hmac->clone());
+                  bench_rng(hmac_drbg, hmac_drbg.name(), msec, buf_size);
+
+                  Botan::HMAC_RNG hmac_rng(hmac->clone(), hmac->clone());
+                  bench_rng(hmac_rng, hmac_rng.name(), msec, buf_size);
+                  }
+#endif
                }
             else if(algo == "entropy")
                {
@@ -425,7 +459,7 @@ class Speed final : public Command
                                const std::chrono::milliseconds runtime,
                                size_t buf_size)
          {
-         Botan::secure_vector<uint8_t> buffer = rng().random_vec(buf_size * 1024);
+         Botan::secure_vector<uint8_t> buffer = rng().random_vec(buf_size);
 
          Timer encrypt_timer(cipher.name(), provider, "encrypt", buffer.size());
 
@@ -444,7 +478,7 @@ class Speed final : public Command
                       const std::chrono::milliseconds runtime,
                       size_t buf_size)
          {
-         Botan::secure_vector<uint8_t> buffer = rng().random_vec(buf_size * 1024);
+         Botan::secure_vector<uint8_t> buffer = rng().random_vec(buf_size);
 
          Timer timer(hash.name(), provider, "hash", buffer.size());
          timer.run_until_elapsed(runtime, [&] { hash.update(buffer); });
@@ -456,17 +490,13 @@ class Speed final : public Command
                      const std::chrono::milliseconds runtime,
                      size_t buf_size)
          {
-         Botan::secure_vector<uint8_t> buffer = rng().random_vec(buf_size * 1024);
+         Botan::secure_vector<uint8_t> buffer = rng().random_vec(buf_size);
+
+         const Botan::SymmetricKey key(rng(), mac.maximum_keylength());
+         mac.set_key(key);
 
          Timer timer(mac.name(), provider, "mac", buffer.size());
-
-         while(timer.under(runtime))
-            {
-            const Botan::SymmetricKey key(rng(), mac.maximum_keylength());
-            mac.set_key(key);
-            timer.run([&] { mac.update(buffer); });
-            }
-
+         timer.run_until_elapsed(runtime, [&] { mac.update(buffer); });
          output() << Timer::result_string_bps(timer);
          }
 
@@ -511,7 +541,11 @@ class Speed final : public Command
                      size_t buf_size)
          {
          Botan::secure_vector<uint8_t> buffer(buf_size);
-         Timer timer(rng_name, "", "bytes", buffer.size());
+
+         rng.add_entropy(buffer.data(), buffer.size());
+         rng.reseed(256);
+
+         Timer timer(rng_name, "", "generate", buffer.size());
          timer.run_until_elapsed(runtime, [&] { rng.randomize(buffer.data(), buffer.size()); });
          output() << Timer::result_string_bps(timer);
          }
@@ -526,21 +560,43 @@ class Speed final : public Command
 
          for(auto src : srcs.enabled_sources())
             {
-            size_t bytes = 0, entropy_bits = 0, samples = 0;
+            size_t entropy_bits = 0, samples = 0;
+            std::vector<size_t> entropy;
+
             Botan::Entropy_Accumulator accum(
-               [&](const uint8_t [], size_t buf_len, size_t buf_entropy) -> bool {
-                  bytes += buf_len;
-                  entropy_bits += buf_entropy;
+               [&](const uint8_t buf[], size_t buf_len, size_t buf_entropy) -> bool {
+               entropy.insert(entropy.end(), buf, buf + buf_len);
+               entropy_bits += buf_entropy;
                   samples += 1;
-                  return (samples > 100 || entropy_bits > 512 || clock::now() > deadline);
+                  return (samples > 1024 || entropy_bits > 1024 || clock::now() > deadline);
                });
 
             Timer timer(src, "", "bytes");
             timer.run([&] { srcs.poll_just(accum, src); });
 
-            output() << "Entropy source " << src << " produced " << bytes << " bytes with "
-                     << entropy_bits << " estimated bits of entropy in "
-                     << samples << " samples in " << timer.milliseconds() << " ms\n";
+#if defined(BOTAN_HAS_COMPRESSION)
+            std::unique_ptr<Botan::Compressor_Transform> comp(Botan::make_compressor("zlib", 9));
+            Botan::secure_vector<uint8_t> compressed;
+
+            if(comp)
+               {
+               compressed.assign(entropy.begin(), entropy.end());
+               comp->start();
+               comp->finish(compressed);
+               }
+#endif
+
+            output() << "Entropy source " << src << " output " << entropy.size()
+                     << " bytes in " << timer.milliseconds() << " ms";
+
+#if defined(BOTAN_HAS_COMPRESSION)
+            if(compressed.size() > 0)
+               {
+               output() << " output compressed to " << compressed.size() << " bytes";
+               }
+#endif
+
+            output() << " total samples " << samples << "\n";
             }
          }
 
@@ -814,7 +870,6 @@ class Speed final : public Command
          bench_pk_ka(*key1, *key2, nm, provider, "KDF2(SHA-256)", msec);
          }
 #endif
-
 
    };
 

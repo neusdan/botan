@@ -178,6 +178,12 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
       std::vector<std::string> policies() const;
 
       /**
+      * Get all extensions of this certificate indexed by oid.
+      * @return extension values and critical flag
+      */
+      std::map<OID, std::pair<std::vector<byte>, bool>> v3_extensions() const;
+
+      /**
       * Return the listed address of an OCSP responder, or empty if not set
       */
       std::string ocsp_responder() const;
@@ -220,16 +226,16 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
       * PEM encoded certificate.
       * @param source the data source
       */
-      X509_Certificate(DataSource& source);
+      explicit X509_Certificate(DataSource& source);
 
       /**
       * Create a certificate from a file containing the DER or PEM
       * encoded certificate.
       * @param filename the name of the certificate file
       */
-      X509_Certificate(const std::string& filename);
+      explicit X509_Certificate(const std::string& filename);
 
-      X509_Certificate(const std::vector<byte>& in);
+      explicit X509_Certificate(const std::vector<byte>& in);
 
    private:
       void force_decode() override;
@@ -240,6 +246,7 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
 
       Data_Store m_subject, m_issuer;
       bool m_self_signed;
+      std::map<OID, std::pair<std::vector<byte>, bool>> m_v3_extensions;
    };
 
 /**

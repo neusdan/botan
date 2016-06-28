@@ -100,6 +100,9 @@ class BuildConfigurationInformation(object):
     version_vc_rev = botan_version.release_vc_rev
     version_string = '%d.%d.%d' % (version_major, version_minor, version_patch)
 
+    # This is used on Darwin for dylib versioning
+    version_packed = version_major * 1000 + version_minor
+    
     """
     Constructor
     """
@@ -968,8 +971,8 @@ class CompilerInfo(object):
             if s in self.so_link_commands:
                 return self.so_link_commands[s]
 
-        raise Exception("No shared library link command found for target '%s' in compiler settings '%s'. Searched for: %s" %
-                    (osname, self.infofile, ", ".join(search_for)))
+        raise Exception("No shared library link command found for target '%s' in compiler settings '%s'" %
+                    (osname, self.infofile))
 
     """
     Return the command needed to link an app/test object
@@ -979,8 +982,7 @@ class CompilerInfo(object):
             if s in self.binary_link_commands:
                 return self.binary_link_commands[s]
 
-        raise Exception("No binary link command found for target '%s' in compiler settings '%s'. Searched for: %s" %
-                    (osname, self.infofile, ", ".join(search_for)))
+        return '$(LINKER)'
 
     """
     Return defines for build.h
@@ -1343,6 +1345,8 @@ def create_template_vars(build_config, options, modules, cc, arch, osinfo):
         'so_abi_rev':     build_config.version_so_rev,
         'version':        build_config.version_string,
 
+        'version_packed': build_config.version_packed,
+
         'release_type':   build_config.version_release_type,
 
         'distribution_info': options.distribution_info,
@@ -1461,8 +1465,10 @@ def create_template_vars(build_config, options, modules, cc, arch, osinfo):
         }
 
     if options.os == 'darwin' and options.build_shared_lib:
-        vars['cli_post_link_cmd']  = 'install_name_tool -change "/$(SONAME_ABI)" "@executable_path/$(SONAME_ABI)" $(CLI)'
-        vars['test_post_link_cmd'] = 'install_name_tool -change "/$(SONAME_ABI)" "@executable_path/$(SONAME_ABI)" $(TEST)'
+        # In order that these executables work from the build directory,
+        # we need to change the install names
+        vars['cli_post_link_cmd']  = 'install_name_tool -change "$(INSTALLED_LIB_DIR)/$(SONAME_ABI)" "@executable_path/$(SONAME_ABI)" $(CLI)'
+        vars['test_post_link_cmd'] = 'install_name_tool -change "$(INSTALLED_LIB_DIR)/$(SONAME_ABI)" "@executable_path/$(SONAME_ABI)" $(TEST)'
     else:
         vars['cli_post_link_cmd'] = ''
         vars['test_post_link_cmd'] = ''

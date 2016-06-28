@@ -99,13 +99,13 @@ std::vector<byte> Extensions::serialize() const
       buf.push_back(get_byte(0, extn_code));
       buf.push_back(get_byte(1, extn_code));
 
-      buf.push_back(get_byte<u16bit>(0, extn_val.size()));
-      buf.push_back(get_byte<u16bit>(1, extn_val.size()));
+      buf.push_back(get_byte(0, static_cast<u16bit>(extn_val.size())));
+      buf.push_back(get_byte(1, static_cast<u16bit>(extn_val.size())));
 
       buf += extn_val;
       }
 
-   const u16bit extn_size = buf.size() - 2;
+   const u16bit extn_size = static_cast<u16bit>(buf.size() - 2);
 
    buf[0] = get_byte(0, extn_size);
    buf[1] = get_byte(1, extn_size);
@@ -147,7 +147,7 @@ Server_Name_Indicator::Server_Name_Indicator(TLS_Data_Reader& reader,
       if(name_type == 0) // DNS
          {
          m_sni_host_name = reader.get_string(2, 1, 65535);
-         name_bytes -= (2 + m_sni_host_name.size());
+         name_bytes -= static_cast<u16bit>(2 + m_sni_host_name.size());
          }
       else // some other unknown name type
          {
@@ -163,12 +163,12 @@ std::vector<byte> Server_Name_Indicator::serialize() const
 
    size_t name_len = m_sni_host_name.size();
 
-   buf.push_back(get_byte<u16bit>(0, name_len+3));
-   buf.push_back(get_byte<u16bit>(1, name_len+3));
+   buf.push_back(get_byte(0, static_cast<u16bit>(name_len+3)));
+   buf.push_back(get_byte(1, static_cast<u16bit>(name_len+3)));
    buf.push_back(0); // DNS
 
-   buf.push_back(get_byte<u16bit>(0, name_len));
-   buf.push_back(get_byte<u16bit>(1, name_len));
+   buf.push_back(get_byte(0, static_cast<u16bit>(name_len)));
+   buf.push_back(get_byte(1, static_cast<u16bit>(name_len)));
 
    buf += std::make_pair(
       reinterpret_cast<const byte*>(m_sni_host_name.data()),
@@ -264,8 +264,8 @@ std::vector<byte> Application_Layer_Protocol_Notification::serialize() const
                                  1);
       }
 
-   buf[0] = get_byte<u16bit>(0, buf.size()-2);
-   buf[1] = get_byte<u16bit>(1, buf.size()-2);
+   buf[0] = get_byte(0, static_cast<u16bit>(buf.size()-2));
+   buf[1] = get_byte(1, static_cast<u16bit>(buf.size()-2));
 
    return buf;
    }
@@ -274,22 +274,6 @@ std::string Supported_Elliptic_Curves::curve_id_to_name(u16bit id)
    {
    switch(id)
       {
-      case 15:
-         return "secp160k1";
-      case 16:
-         return "secp160r1";
-      case 17:
-         return "secp160r2";
-      case 18:
-         return "secp192k1";
-      case 19:
-         return "secp192r1";
-      case 20:
-         return "secp224k1";
-      case 21:
-         return "secp224r1";
-      case 22:
-         return "secp256k1";
       case 23:
          return "secp256r1";
       case 24:
@@ -309,22 +293,6 @@ std::string Supported_Elliptic_Curves::curve_id_to_name(u16bit id)
 
 u16bit Supported_Elliptic_Curves::name_to_curve_id(const std::string& name)
    {
-   if(name == "secp160k1")
-      return 15;
-   if(name == "secp160r1")
-      return 16;
-   if(name == "secp160r2")
-      return 17;
-   if(name == "secp192k1")
-      return 18;
-   if(name == "secp192r1")
-      return 19;
-   if(name == "secp224k1")
-      return 20;
-   if(name == "secp224r1")
-      return 21;
-   if(name == "secp256k1")
-      return 22;
    if(name == "secp256r1")
       return 23;
    if(name == "secp384r1")
@@ -352,8 +320,8 @@ std::vector<byte> Supported_Elliptic_Curves::serialize() const
       buf.push_back(get_byte(1, id));
       }
 
-   buf[0] = get_byte<u16bit>(0, buf.size()-2);
-   buf[1] = get_byte<u16bit>(1, buf.size()-2);
+   buf[0] = get_byte(0, static_cast<u16bit>(buf.size()-2));
+   buf[1] = get_byte(1, static_cast<u16bit>(buf.size()-2));
 
    return buf;
    }
@@ -385,14 +353,13 @@ std::string Signature_Algorithms::hash_algo_name(byte code)
    {
    switch(code)
       {
-      case 1:
-         return "MD5";
       // code 1 is MD5 - ignore it
 
       case 2:
          return "SHA-1";
-      case 3:
-         return "SHA-224";
+
+      // code 3 is SHA-224
+
       case 4:
          return "SHA-256";
       case 5:
@@ -406,14 +373,8 @@ std::string Signature_Algorithms::hash_algo_name(byte code)
 
 byte Signature_Algorithms::hash_algo_code(const std::string& name)
    {
-   if(name == "MD5")
-      return 1;
-
    if(name == "SHA-1")
       return 2;
-
-   if(name == "SHA-224")
-      return 3;
 
    if(name == "SHA-256")
       return 4;
@@ -474,8 +435,8 @@ std::vector<byte> Signature_Algorithms::serialize() const
          {}
       }
 
-   buf[0] = get_byte<u16bit>(0, buf.size()-2);
-   buf[1] = get_byte<u16bit>(1, buf.size()-2);
+   buf[0] = get_byte(0, static_cast<u16bit>(buf.size()-2));
+   buf[1] = get_byte(1, static_cast<u16bit>(buf.size()-2));
 
    return buf;
    }
@@ -531,7 +492,7 @@ std::vector<byte> SRTP_Protection_Profiles::serialize() const
    {
    std::vector<byte> buf;
 
-   const u16bit pp_len = m_pp.size() * 2;
+   const u16bit pp_len = static_cast<u16bit>(m_pp.size() * 2);
    buf.push_back(get_byte(0, pp_len));
    buf.push_back(get_byte(1, pp_len));
 

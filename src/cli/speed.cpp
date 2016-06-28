@@ -6,6 +6,7 @@
 */
 
 #include "cli.h"
+
 #include <sstream>
 #include <iomanip>
 #include <chrono>
@@ -34,6 +35,10 @@
 
 #if defined(BOTAN_HAS_X931_RNG)
   #include <botan/x931_rng.h>
+#endif
+
+#if defined(BOTAN_HAS_FPE_FE1)
+  #include <botan/fpe_fe1.h>
 #endif
 
 #if defined(BOTAN_HAS_COMPRESSION)
@@ -381,6 +386,12 @@ class Speed final : public Command
                bench_curve25519(provider, msec);
                }
 #endif
+#if defined(BOTAN_HAS_MCELIECE)
+            else if(algo == "McEliece")
+               {
+               bench_mceliece(provider, msec);
+               }
+#endif
 
 #if defined(BOTAN_HAS_NUMBERTHEORY)
             else if(algo == "random_prime")
@@ -390,6 +401,13 @@ class Speed final : public Command
             else if(algo == "inverse_mod")
                {
                bench_inverse_mod(msec);
+               }
+#endif
+
+#if defined(BOTAN_HAS_FPE_FE1)
+            else if(algo == "fpe_fe1")
+               {
+               bench_fpe_fe1(msec);
                }
 #endif
             else if(algo == "RNG")
@@ -591,13 +609,14 @@ class Speed final : public Command
 
          for(auto src : srcs.enabled_sources())
             {
-            size_t entropy_bits = 0, samples = 0;
+            double entropy_bits = 0.0;
+            size_t samples = 0;
             std::vector<size_t> entropy;
 
             Botan::Entropy_Accumulator accum(
-               [&](const uint8_t buf[], size_t buf_len, size_t buf_entropy) -> bool {
-               entropy.insert(entropy.end(), buf, buf + buf_len);
-               entropy_bits += buf_entropy;
+               [&](const uint8_t buf[], size_t buf_len, double buf_entropy) -> bool {
+                  entropy.insert(entropy.end(), buf, buf + buf_len);
+                  entropy_bits += buf_entropy;
                   samples += 1;
                   return (samples > 1024 || entropy_bits > 1024 || clock::now() > deadline);
                });
@@ -606,19 +625,20 @@ class Speed final : public Command
             timer.run([&] { srcs.poll_just(accum, src); });
 
 #if defined(BOTAN_HAS_COMPRESSION)
-            std::unique_ptr<Botan::Compressor_Transform> comp(Botan::make_compressor("zlib", 9));
+            std::unique_ptr<Botan::Compression_Algorithm> comp(Botan::make_compressor("zlib"));
             Botan::secure_vector<uint8_t> compressed;
 
             if(comp)
                {
                compressed.assign(entropy.begin(), entropy.end());
-               comp->start();
+               comp->start(9);
                comp->finish(compressed);
                }
 #endif
 
-            output() << "Entropy source " << src << " output " << entropy.size()
-                     << " bytes in " << timer.milliseconds() << " ms";
+            output() << "Entropy source " << src << " output " << entropy.size() << " bytes"
+                     << " estimated entropy " << entropy_bits
+                     << " in " << timer.milliseconds() << " ms";
 
 #if defined(BOTAN_HAS_COMPRESSION)
             if(compressed.size() > 0)
@@ -630,6 +650,41 @@ class Speed final : public Command
             output() << " total samples " << samples << "\n";
             }
          }
+
+#if defined(BOTAN_HAS_FPE_FE1)
+
+      void bench_fpe_fe1(const std::chrono::milliseconds runtime)
+         {
+         const Botan::BigInt n = 1000000000000000;
+
+         Timer enc_timer("FPE_FE1 encrypt");
+         Timer dec_timer("FPE_FE1 decrypt");
+
+         const Botan::SymmetricKey key(rng(), 32);
+         const std::vector<uint8_t> tweak(8); // 8 zeros
+
+         Botan::BigInt x = 1;
+
+         while(enc_timer.under(runtime))
+            {
+            enc_timer.start();
+            x = Botan::FPE::fe1_encrypt(n, x, key, tweak);
+            enc_timer.stop();
+            }
+
+         for(size_t i = 0; i != enc_timer.events(); ++i)
+            {
+            dec_timer.start();
+            x = Botan::FPE::fe1_decrypt(n, x, key, tweak);
+            dec_timer.stop();
+            }
+
+         BOTAN_ASSERT(x == 1, "FPE works");
+
+         output() << Timer::result_string_ops(enc_timer);
+         output() << Timer::result_string_ops(dec_timer);
+         }
+#endif
 
 #if defined(BOTAN_HAS_NUMBERTHEORY)
 
@@ -726,8 +781,8 @@ class Speed final : public Command
          Botan::PK_Encryptor_EME enc(key, padding, provider);
          Botan::PK_Decryptor_EME dec(key, padding, provider);
 
-         Timer enc_timer(nm, provider, "encrypt");
-         Timer dec_timer(nm, provider, "decrypt");
+         Timer enc_timer(nm, provider, padding + " encrypt");
+         Timer dec_timer(nm, provider, padding + " decrypt");
 
          while(enc_timer.under(msec) || dec_timer.under(msec))
             {
@@ -782,6 +837,41 @@ class Speed final : public Command
          output() << Timer::result_string_ops(ka_timer);
          }
 
+      void bench_pk_kem(const Botan::Private_Key& key,
+                        const std::string& nm,
+                        const std::string& provider,
+                        const std::string& kdf,
+                        std::chrono::milliseconds msec)
+         {
+         Botan::PK_KEM_Decryptor dec(key, kdf, provider);
+         Botan::PK_KEM_Encryptor enc(key, kdf, provider);
+
+         Timer kem_enc_timer(nm, provider, "KEM encrypt");
+         Timer kem_dec_timer(nm, provider, "KEM decrypt");
+
+         while(kem_enc_timer.under(msec) && kem_dec_timer.under(msec))
+            {
+            Botan::secure_vector<uint8_t> encap_key, enc_shared_key;
+            Botan::secure_vector<uint8_t> salt = rng().random_vec(16);
+
+            kem_enc_timer.start();
+            enc.encrypt(encap_key, enc_shared_key, 64, rng(), salt);
+            kem_enc_timer.stop();
+
+            kem_dec_timer.start();
+            Botan::secure_vector<uint8_t> dec_shared_key = dec.decrypt(encap_key, 64, salt);
+            kem_dec_timer.stop();
+
+            if(enc_shared_key != dec_shared_key)
+               {
+               error_output() << "KEM mismatch in PK bench\n";
+               }
+            }
+
+         output() << Timer::result_string_ops(kem_enc_timer);
+         output() << Timer::result_string_ops(kem_dec_timer);
+         }
+
       void bench_pk_sig(const Botan::Private_Key& key,
                         const std::string& nm,
                         const std::string& provider,
@@ -793,8 +883,8 @@ class Speed final : public Command
          Botan::PK_Signer   sig(key, padding, Botan::IEEE_1363, provider);
          Botan::PK_Verifier ver(key, padding, Botan::IEEE_1363, provider);
 
-         Timer sig_timer(nm, provider, "sign");
-         Timer ver_timer(nm, provider, "verify");
+         Timer sig_timer(nm, provider, padding + " sign");
+         Timer ver_timer(nm, provider, padding + " verify");
 
          while(ver_timer.under(msec) || sig_timer.under(msec))
             {
@@ -855,7 +945,10 @@ class Speed final : public Command
 
             // Using PKCS #1 padding so OpenSSL provider can play along
             bench_pk_enc(*key, nm, provider, "EME-PKCS1-v1_5", msec);
+            bench_pk_enc(*key, nm, provider, "OAEP(SHA-1)", msec);
+
             bench_pk_sig(*key, nm, provider, "EMSA-PKCS1-v1_5(SHA-1)", msec);
+            bench_pk_sig(*key, nm, provider, "PSSR(SHA-256)", msec);
             }
          }
 #endif
@@ -944,6 +1037,47 @@ class Speed final : public Command
 
          output() << Timer::result_string_ops(keygen_timer);
          bench_pk_ka(*key1, *key2, nm, provider, "KDF2(SHA-256)", msec);
+         }
+#endif
+
+#if defined(BOTAN_HAS_MCELIECE)
+      void bench_mceliece(const std::string& provider,
+                          std::chrono::milliseconds msec)
+         {
+         /*
+         SL=80 n=1632 t=33 - 59 KB pubkey 140 KB privkey
+         SL=107 n=2480 t=45 - 128 KB pubkey 300 KB privkey
+         SL=128 n=2960 t=57 - 195 KB pubkey 459 KB privkey
+         SL=147 n=3408 t=67 - 265 KB pubkey 622 KB privkey
+         SL=191 n=4624 t=95 - 516 KB pubkey 1234 KB privkey
+         SL=256 n=6624 t=115 - 942 KB pubkey 2184 KB privkey
+         */
+
+         const std::vector<std::pair<size_t, size_t>> mce_params = {
+            { 2480, 45 },
+            { 2960, 57 },
+            { 3408, 67 },
+            { 4624, 95 },
+            { 6624, 115 }
+         };
+
+         for(auto params : mce_params)
+            {
+            size_t n = params.first;
+            size_t t = params.second;
+
+            const std::string nm = "McEliece-" + std::to_string(n) + "," + std::to_string(t) +
+               " (WF=" + std::to_string(Botan::mceliece_work_factor(n, t)) + ")";
+
+            Timer keygen_timer(nm, provider, "keygen");
+
+            std::unique_ptr<Botan::Private_Key> key(keygen_timer.run([&] {
+                  return new Botan::McEliece_PrivateKey(rng(), n, t);
+               }));
+
+            output() << Timer::result_string_ops(keygen_timer);
+            bench_pk_kem(*key, nm, provider, "KDF2(SHA-256)", msec);
+            }
          }
 #endif
 

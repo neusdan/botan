@@ -11,10 +11,13 @@
 #include <botan/x509_obj.h>
 #include <botan/x509_dn.h>
 #include <botan/x509_key.h>
+#include <botan/x509_ext.h>
 #include <botan/asn1_alt_name.h>
 #include <botan/datastor.h>
 #include <botan/key_constraint.h>
+#include <botan/name_constraint.h>
 #include <map>
+#include <memory>
 
 namespace Botan {
 
@@ -64,9 +67,9 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
       * "X509.Certificate.start", "X509.Certificate.end",
       * "X509.Certificate.v2.key_id", "X509.Certificate.public_key",
       * "X509v3.BasicConstraints.path_constraint",
-      * "X509v3.BasicConstraints.is_ca", "X509v3.ExtendedKeyUsage",
-      * "X509v3.CertificatePolicies", "X509v3.SubjectKeyIdentifier" or
-      * "X509.Certificate.serial".
+      * "X509v3.BasicConstraints.is_ca", "X509v3.NameConstraints",
+      * "X509v3.ExtendedKeyUsage", "X509v3.CertificatePolicies",
+      * "X509v3.SubjectKeyIdentifier" or "X509.Certificate.serial".
       * @return value(s) of the specified parameter
       */
       std::vector<std::string> subject_info(const std::string& name) const;
@@ -156,6 +159,12 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
       u32bit path_limit() const;
 
       /**
+      * Check whenever a given X509 Extension is marked critical in this
+      * certificate.
+      */
+      bool is_critical(const std::string& ex_name) const;
+
+      /**
       * Get the key constraints as defined in the KeyUsage extension of this
       * certificate.
       * @return key constraints
@@ -164,11 +173,17 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
 
       /**
       * Get the key constraints as defined in the ExtendedKeyUsage
-      * extension of this
-      * certificate.
+      * extension of this certificate.
       * @return key constraints
       */
       std::vector<std::string> ex_constraints() const;
+
+      /**
+      * Get the name constraints as defined in the NameConstraints
+      * extension of this certificate.
+      * @return name constraints
+      */
+      NameConstraints name_constraints() const;
 
       /**
       * Get the policies as defined in the CertificatePolicies extension
@@ -178,10 +193,10 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
       std::vector<std::string> policies() const;
 
       /**
-      * Get all extensions of this certificate indexed by oid.
-      * @return extension values and critical flag
+      * Get all extensions of this certificate.
+      * @return certificate extensions
       */
-      std::map<OID, std::pair<std::vector<byte>, bool>> v3_extensions() const;
+      Extensions v3_extensions() const;
 
       /**
       * Return the listed address of an OCSP responder, or empty if not set
@@ -237,6 +252,10 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
 
       explicit X509_Certificate(const std::vector<byte>& in);
 
+      X509_Certificate(const X509_Certificate& other);
+
+      X509_Certificate& operator=(const X509_Certificate& other);
+
    private:
       void force_decode() override;
       friend class X509_CA;
@@ -246,7 +265,7 @@ class BOTAN_DLL X509_Certificate final : public X509_Object
 
       Data_Store m_subject, m_issuer;
       bool m_self_signed;
-      std::map<OID, std::pair<std::vector<byte>, bool>> m_v3_extensions;
+      Extensions m_v3_extensions;
    };
 
 /**

@@ -31,12 +31,7 @@ secure_vector<byte> PK_Ops::Encryption_with_EME::encrypt(const byte msg[], size_
                                                          RandomNumberGenerator& rng)
    {
    const size_t max_raw = max_raw_input_bits();
-
    const std::vector<byte> encoded = unlock(m_eme->encode(msg, msg_len, max_raw, rng));
-
-   if(8*(encoded.size() - 1) + high_bit(encoded[0]) > max_raw)
-      throw Exception("Input is too large to encrypt with this key");
-
    return raw_encrypt(encoded.data(), encoded.size(), rng);
    }
 
@@ -54,9 +49,13 @@ size_t PK_Ops::Decryption_with_EME::max_input_bits() const
    return m_eme->maximum_input_size(max_raw_input_bits());
    }
 
-secure_vector<byte> PK_Ops::Decryption_with_EME::decrypt(const byte msg[], size_t length)
+secure_vector<byte>
+PK_Ops::Decryption_with_EME::decrypt(byte& valid_mask,
+                                     const byte ciphertext[],
+                                     size_t ciphertext_len)
    {
-   return m_eme->decode(raw_decrypt(msg, length), max_raw_input_bits());
+   const secure_vector<byte> raw = raw_decrypt(ciphertext, ciphertext_len);
+   return m_eme->unpad(valid_mask, raw.data(), raw.size());
    }
 
 PK_Ops::Key_Agreement_with_KDF::Key_Agreement_with_KDF(const std::string& kdf)
@@ -77,9 +76,12 @@ secure_vector<byte> PK_Ops::Key_Agreement_with_KDF::agree(size_t key_len,
    return z;
   }
 
-PK_Ops::Signature_with_EMSA::Signature_with_EMSA(const std::string& emsa)
+PK_Ops::Signature_with_EMSA::Signature_with_EMSA(const std::string& emsa) :
+   Signature(),
+   m_emsa(get_emsa(emsa)),
+   m_hash(hash_for_emsa(emsa)),
+   m_prefix_used(false)
    {
-   m_emsa.reset(get_emsa(emsa));
    if(!m_emsa)
       throw Algorithm_Not_Found(emsa);
    }
@@ -88,19 +90,29 @@ PK_Ops::Signature_with_EMSA::~Signature_with_EMSA() {}
 
 void PK_Ops::Signature_with_EMSA::update(const byte msg[], size_t msg_len)
    {
+   if(has_prefix() && !m_prefix_used)
+      {
+      m_prefix_used = true;
+      secure_vector<byte> prefix = message_prefix();
+      m_emsa->update(prefix.data(), prefix.size());
+      }
    m_emsa->update(msg, msg_len);
    }
 
 secure_vector<byte> PK_Ops::Signature_with_EMSA::sign(RandomNumberGenerator& rng)
    {
+   m_prefix_used = false;
    const secure_vector<byte> msg = m_emsa->raw_data();
    const auto padded = m_emsa->encoding_of(msg, this->max_input_bits(), rng);
    return raw_sign(padded.data(), padded.size(), rng);
    }
 
-PK_Ops::Verification_with_EMSA::Verification_with_EMSA(const std::string& emsa)
+PK_Ops::Verification_with_EMSA::Verification_with_EMSA(const std::string& emsa) :
+   Verification(),
+   m_emsa(get_emsa(emsa)),
+   m_hash(hash_for_emsa(emsa)),
+   m_prefix_used(false)
    {
-   m_emsa.reset(get_emsa(emsa));
    if(!m_emsa)
       throw Algorithm_Not_Found(emsa);
    }
@@ -109,11 +121,18 @@ PK_Ops::Verification_with_EMSA::~Verification_with_EMSA() {}
 
 void PK_Ops::Verification_with_EMSA::update(const byte msg[], size_t msg_len)
    {
+   if(has_prefix() && !m_prefix_used)
+      {
+      m_prefix_used = true;
+      secure_vector<byte> prefix = message_prefix();
+      m_emsa->update(prefix.data(), prefix.size());
+      }
    m_emsa->update(msg, msg_len);
    }
 
 bool PK_Ops::Verification_with_EMSA::is_valid_signature(const byte sig[], size_t sig_len)
    {
+   m_prefix_used = false;
    const secure_vector<byte> msg = m_emsa->raw_data();
 
    if(with_recovery())

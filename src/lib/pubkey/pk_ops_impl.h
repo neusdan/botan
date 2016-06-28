@@ -37,7 +37,8 @@ class Decryption_with_EME : public Decryption
    public:
       size_t max_input_bits() const override;
 
-      secure_vector<byte> decrypt(const byte msg[], size_t msg_len) override;
+      secure_vector<byte> decrypt(byte& valid_mask,
+                                  const byte msg[], size_t msg_len) override;
 
       ~Decryption_with_EME();
    protected:
@@ -57,10 +58,23 @@ class Verification_with_EMSA : public Verification
       bool do_check(const secure_vector<byte>& msg,
                     const byte sig[], size_t sig_len);
 
+      std::string hash_for_signature() { return m_hash; }
    protected:
 
       explicit Verification_with_EMSA(const std::string& emsa);
       ~Verification_with_EMSA();
+
+      /**
+      * @return boolean specifying if this signature scheme uses
+      * a message prefix returned by message_prefix()
+      */
+      virtual bool has_prefix() { return false; }
+
+      /**
+      * @return the message prefix if this signature scheme uses
+      * a message prefix, signaled via has_prefix()
+      */
+      virtual secure_vector<byte> message_prefix() const { throw Exception( "No prefix" ); }
 
       /**
       * @return boolean specifying if this key type supports message
@@ -94,8 +108,11 @@ class Verification_with_EMSA : public Verification
          throw Invalid_State("Message recovery not supported");
          }
 
-   private:
       std::unique_ptr<EMSA> m_emsa;
+
+   private:
+      const std::string m_hash;
+      bool m_prefix_used;
    };
 
 class Signature_with_EMSA : public Signature
@@ -107,6 +124,22 @@ class Signature_with_EMSA : public Signature
    protected:
       explicit Signature_with_EMSA(const std::string& emsa);
       ~Signature_with_EMSA();
+
+      std::string hash_for_signature() { return m_hash; }
+
+      /**
+      * @return boolean specifying if this signature scheme uses
+      * a message prefix returned by message_prefix()
+      */
+      virtual bool has_prefix() { return false; }
+
+      /**
+      * @return the message prefix if this signature scheme uses
+      * a message prefix, signaled via has_prefix()
+      */
+      virtual secure_vector<byte> message_prefix() const { throw Exception( "No prefix" ); }
+
+      std::unique_ptr<EMSA> m_emsa;
    private:
 
       /**
@@ -121,7 +154,8 @@ class Signature_with_EMSA : public Signature
       virtual secure_vector<byte> raw_sign(const byte msg[], size_t msg_len,
                                            RandomNumberGenerator& rng) = 0;
 
-      std::unique_ptr<EMSA> m_emsa;
+      const std::string m_hash;
+      bool m_prefix_used;
    };
 
 class Key_Agreement_with_KDF : public Key_Agreement

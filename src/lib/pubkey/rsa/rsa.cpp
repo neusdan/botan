@@ -58,7 +58,7 @@ bool RSA_PrivateKey::check_key(RandomNumberGenerator& rng, bool strong) const
    if((m_e * m_d) % lcm(m_p - 1, m_q - 1) != 1)
       return false;
 
-   return KeyPair::signature_consistency_check(rng, *this, "EMSA4(SHA-1)");
+   return KeyPair::signature_consistency_check(rng, *this, "EMSA4(SHA-256)");
    }
 
 namespace {
@@ -157,7 +157,7 @@ class RSA_Decryption_Operation : public PK_Ops::Decryption_with_EME,
          const BigInt x = blinded_private_op(m);
          const BigInt c = m_powermod_e_n(x);
          BOTAN_ASSERT(m == c, "RSA decrypt consistency check");
-         return BigInt::encode_locked(x);
+         return BigInt::encode_1363(x, m_n.bytes());
          }
    };
 

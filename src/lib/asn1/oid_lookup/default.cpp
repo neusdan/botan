@@ -30,6 +30,12 @@ const char* default_oid_list()
       "1.2.840.10045.2.1 = ECDSA" "\n"
       "1.3.132.1.12 = ECDH" "\n"
 
+      // ecgPublicKey (see https://www.teletrust.de/projekte/oid/)
+      "1.3.36.3.3.2.5.2.1 = ECGDSA" "\n"
+
+      // EC-KCDSA mechanism (Elliptic Curve KCDSA)
+      "1.0.14888.3.0.5 = ECKCDSA" "\n"
+
       "1.2.643.2.2.19 = GOST-34.10" "\n"
 
       // Block ciphers
@@ -99,18 +105,18 @@ const char* default_oid_list()
       "2.16.840.1.101.3.4.3.1 = DSA/EMSA1(SHA-224)" "\n"
       "2.16.840.1.101.3.4.3.2 = DSA/EMSA1(SHA-256)" "\n"
 
-      "0.4.0.127.0.7.1.1.4.1.1 = ECDSA/EMSA1_BSI(SHA-160)" "\n"
-      "0.4.0.127.0.7.1.1.4.1.2 = ECDSA/EMSA1_BSI(SHA-224)" "\n"
-      "0.4.0.127.0.7.1.1.4.1.3 = ECDSA/EMSA1_BSI(SHA-256)" "\n"
-      "0.4.0.127.0.7.1.1.4.1.4 = ECDSA/EMSA1_BSI(SHA-384)" "\n"
-      "0.4.0.127.0.7.1.1.4.1.5 = ECDSA/EMSA1_BSI(SHA-512)" "\n"
-      "0.4.0.127.0.7.1.1.4.1.6 = ECDSA/EMSA1_BSI(RIPEMD-160)" "\n"
-
       "1.2.840.10045.4.1 = ECDSA/EMSA1(SHA-160)" "\n"
       "1.2.840.10045.4.3.1 = ECDSA/EMSA1(SHA-224)" "\n"
       "1.2.840.10045.4.3.2 = ECDSA/EMSA1(SHA-256)" "\n"
       "1.2.840.10045.4.3.3 = ECDSA/EMSA1(SHA-384)" "\n"
       "1.2.840.10045.4.3.4 = ECDSA/EMSA1(SHA-512)" "\n"
+
+      "1.3.36.3.3.2.5.4.1 = ECGDSA/EMSA1(RIPEMD-160)" "\n"
+      "1.3.36.3.3.2.5.4.2 = ECGDSA/EMSA1(SHA-160)" "\n"
+      "1.3.36.3.3.2.5.4.3 = ECGDSA/EMSA1(SHA-224)" "\n"
+      "1.3.36.3.3.2.5.4.4 = ECGDSA/EMSA1(SHA-256)" "\n"
+      "1.3.36.3.3.2.5.4.5 = ECGDSA/EMSA1(SHA-384)" "\n"
+      "1.3.36.3.3.2.5.4.6 = ECGDSA/EMSA1(SHA-512)" "\n"
 
       "1.2.643.2.2.3 = GOST-34.10/EMSA1(GOST-R-34.11-94)" "\n"
 
@@ -177,6 +183,7 @@ const char* default_oid_list()
       "2.5.29.21 = X509v3.ReasonCode" "\n"
       "2.5.29.23 = X509v3.HoldInstructionCode" "\n"
       "2.5.29.24 = X509v3.InvalidityDate" "\n"
+      "2.5.29.30 = X509v3.NameConstraints" "\n"
       "2.5.29.31 = X509v3.CRLDistributionPoints" "\n"
       "2.5.29.32 = X509v3.CertificatePolicies" "\n"
       "2.5.29.35 = X509v3.AuthorityKeyIdentifier" "\n"

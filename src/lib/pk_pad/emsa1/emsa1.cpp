@@ -67,29 +67,19 @@ secure_vector<byte> EMSA1::encoding_of(const secure_vector<byte>& msg,
 bool EMSA1::verify(const secure_vector<byte>& coded,
                    const secure_vector<byte>& raw, size_t key_bits)
    {
-   try {
-      if(raw.size() != m_hash->output_length())
-         throw Encoding_Error("EMSA1::encoding_of: Invalid size for input");
-
-      secure_vector<byte> our_coding = emsa1_encoding(raw, key_bits);
-
-      if(our_coding == coded) return true;
-      if(our_coding.empty() || our_coding[0] != 0) return false;
-      if(our_coding.size() <= coded.size()) return false;
-
-      size_t offset = 0;
-      while(offset < our_coding.size() && our_coding[offset] == 0)
-         ++offset;
-      if(our_coding.size() - offset != coded.size())
-         return false;
-
-      for(size_t j = 0; j != coded.size(); ++j)
-         if(coded[j] != our_coding[j+offset])
-            return false;
-
-      return true;
+   try
+      {
+		auto x = emsa1_encoding( raw, key_bits );
+		if ( coded != x )
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
       }
-   catch(Invalid_Argument)
+   catch(Encoding_Error)
       {
       return false;
       }

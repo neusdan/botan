@@ -14,6 +14,7 @@
 #include <botan/workfactor.h>
 #include <botan/der_enc.h>
 #include <botan/ber_dec.h>
+#include <botan/hash.h>
 
 #if defined(BOTAN_HAS_OPENSSL)
   #include <botan/internal/openssl.h>
@@ -383,7 +384,17 @@ class RSA_Verify_Operation : public PK_Ops::Verification_with_EMSA,
       secure_vector<byte> verify_mr(const byte msg[], size_t msg_len) override
          {
          BigInt m(msg, msg_len);
-         return BigInt::encode_locked(public_op(m));
+         
+         std::string hash = hash_for_signature();
+         
+         if(hash != "Raw")
+            {
+            return BigInt::encode_1363(public_op(m), HashFunction::create(hash)->output_length());
+            }
+         else
+            {
+            return BigInt::encode_locked(public_op(m));
+            }
          }
    };
 
